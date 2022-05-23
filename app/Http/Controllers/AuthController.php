@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Auth\LoginRequest;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         // Try credentials
-        if(!auth()->attempt(request(['email', 'password'])))
+        if(!auth()->attempt($request->validated()))
         {
             return response(['message' => 'Unauthorized'], 401);
         }
