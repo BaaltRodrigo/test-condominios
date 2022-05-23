@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get("me", [AuthController::class, 'me'])->name("auth.current");
     Route::post("logout", [AuthController::class, 'logout'])->name("auth.logout");
 
+    Route::resource('users', UserController::class)->except(['create', 'edit']);
 });
