@@ -24,7 +24,7 @@ class UpdateCobroRequest extends FormRequest
     public function rules()
     {
         return [
-            'value'         => ['sometimes', 'required', 'number', 'between:50,500000'],
+            'value'         => ['sometimes', 'required', 'integer', 'between:50,500000'],
             'description'   => ['sometimes', 'required', 'string'],
         ];
     }

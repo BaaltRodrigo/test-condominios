@@ -24,8 +24,8 @@ class StoreCobroRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'       => ['required', ' number', 'exists:users,id'],
-            'value'         => ['required', 'number', 'between:50,500000'],
+            'user_id'       => ['required', ' integer', 'exists:users,id'],
+            'value'         => ['required', 'integer', 'between:50,500000'],
             'description'   => ['sometimes', 'required', 'string'],
         ];
     }
