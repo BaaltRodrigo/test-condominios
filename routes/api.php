@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CobroController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -28,4 +29,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("logout", [AuthController::class, 'logout'])->name("auth.logout");
 
     Route::resource('users', UserController::class)->except(['create', 'edit']);
+    Route::resource('cobros', CobroController::class)->except(['create', 'edit']);
 });
