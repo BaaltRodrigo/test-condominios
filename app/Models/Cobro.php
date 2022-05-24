@@ -13,7 +13,8 @@ class Cobro extends Model
     protected $fillable = [
         'user_id',
         'value',
-        'description'
+        'description',
+        'status'
     ];
 
     public function user() {

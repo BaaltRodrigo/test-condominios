@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CobroController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransbankController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::resource('users', UserController::class)->except(['create', 'edit']);
     Route::resource('cobros', CobroController::class)->except(['create', 'edit']);
+
 });
+
+Route::post('cobros/{cobro}/iniciar_compra', [TransbankController::class, 'iniciar'])->name("transbank.start");
+Route::post('confirmar_pago', [TransbankController::class, 'confirmar'])->name('transbank.confirm');

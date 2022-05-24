@@ -21,7 +21,7 @@ class CobroController extends Controller
 
     public function store(StoreCobroRequest $request)
     {
-        $cobro = Cobro::create($request->validated());
+        $cobro = Cobro::create($request->validated() );
         return $cobro;
     }
 
