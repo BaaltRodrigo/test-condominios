@@ -21,7 +21,7 @@ class CobroController extends Controller
 
     public function store(StoreCobroRequest $request)
     {
-        $cobro = Cobro::create($request->validated() );
+        $cobro = Cobro::create($request->validated());
         return $cobro;
     }
 
@@ -33,6 +33,7 @@ class CobroController extends Controller
 
     public function destroy(Cobro $cobro)
     {
-        abort(403);
+        $cobro->delete();
+        return 200;
     }
 }
